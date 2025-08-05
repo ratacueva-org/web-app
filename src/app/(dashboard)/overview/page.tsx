@@ -3,7 +3,7 @@
 import React from "react";
 import Button from "@/components/atoms/Button";
 import DashboardContentLayout from "@/components/features/dashboard/templates/DashboardContentLayout";
-import BaseTable from "@/components/features/dashboard/atoms/BaseTable";
+import { BaseTable } from "@/components/features/dashboard/atoms/BaseTable";
 import StatusTag from "@/components/features/dashboard/atoms/StatusTag";
 import {
   PlusCircleIcon,
