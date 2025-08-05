@@ -6,15 +6,16 @@ import { Body, Heading } from "@/components/atoms/Typography";
 import Input from "@/components/atoms/Input";
 import StatusTag, { getStockStatus } from "@/components/features/dashboard/atoms/StatusTag";
 import {
-  PencilSquareIcon,
-  TrashIcon,
-  MagnifyingGlassIcon,
+    PencilSquareIcon,
+    TrashIcon,
+    MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
 import DashboardContentLayout from "@/components/features/dashboard/templates/DashboardContentLayout";
 import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
 import { useProducts } from "@/hook/dashboard/UseProduct";
 import { BaseTable } from "@/components/features/dashboard/atoms/BaseTable";
+import Dropdown from "@/components/atoms/Dropdown";
 
 export default function Items() {
     const { data: products, isLoading, error } = useProducts();
@@ -30,7 +31,6 @@ export default function Items() {
             setCurrentPage(currentPage + 1);
         }
     };
-
 
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
@@ -120,17 +120,10 @@ export default function Items() {
                 <div className="flex justify-between items-center">
                     {/* Entradas por página */}
                     <div className="flex items-center py-1">
-                        <select
+                        <Dropdown
                             value={itemsPerPage}
-                            onChange={(e) => setItemsPerPage(Number(e.target.value))}
-                            className="border border-border rounded-2xl px-4 py-2.5 text-placeholder bg-white focus:outline-none"
-                        >
-                            {[5, 10, 20, 50].map(size => (
-                                <option key={size} value={size}>
-                                    {size}
-                                </option>
-                            ))}
-                        </select>
+                            onChange={(val) => setItemsPerPage(val)}
+                            className="w-[100px]"/>
                         <Body className="text-text p-2">entradas por página</Body>
                     </div>
 
@@ -150,9 +143,9 @@ export default function Items() {
 
                 {/* Tabla */}
                 {isLoading ? (
-                    <p className="text-gray-400">Cargando productos...</p>
+                    <p className="text-placeholder">Cargando productos...</p>
                 ) : error ? (
-                    <p className="text-red-400">Error al cargar productos</p>
+                    <p className="text-danger">Error al cargar productos</p>
                 ) : (
                     <BaseTable data={paginatedProducts} columns={columns} />
                 )}
