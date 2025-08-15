@@ -4,13 +4,13 @@ import React from "react";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     return (
-        <AuthGuard allowedRoles={["admin", "employee"]}>
-            <div className="flex h-screen overflow-hidden">
+/*         <AuthGuard allowedRoles={["admin", "employee"]}>
+ */            <div className="flex h-screen overflow-hidden">
                 <Sidebar />
                 <main className="flex-1 overflow-y-auto">
                     {children}
                 </main>
             </div>
-        </AuthGuard>
-    );
+/*         </AuthGuard>
+ */    );
 }

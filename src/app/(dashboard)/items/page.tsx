@@ -11,7 +11,7 @@ import StatusTag, { getStockStatus } from "@/components/features/dashboard/atoms
 import { PencilSquareIcon, TrashIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import DashboardContentLayout from "@/components/features/dashboard/templates/DashboardContentLayout";
 import { ColumnDef } from "@tanstack/react-table";
-import { Item, useProducts } from "@/hook/dashboard/UseProduct";
+import { Item, useProducts } from "@/hook/dashboard/useProduct";
 import { BaseTable } from "@/components/features/dashboard/atoms/BaseTable";
 import Pagination from "@/components/atoms/Pagination";
 

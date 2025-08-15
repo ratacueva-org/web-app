@@ -10,7 +10,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import DashboardContentLayout from "@/components/features/dashboard/templates/DashboardContentLayout";
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
-import { Sale, useSales } from "@/hook/dashboard/useSales";
+import { Sale, useSales } from "@/hook/dashboard/sales/useSales";
 import Pagination from "@/components/atoms/Pagination";
 
 const paymentMethodLabels: Record<string, string> = {
