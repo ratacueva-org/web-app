@@ -16,14 +16,14 @@ export type Address = {
 };
 
 export type Employee = {
-  _id: string;
-  name: string;
-  lastName: string;
-  secondLastName: string;
-  email: string;
-  phone: string;
-  role: "employee";
-  addresses: Address[];
+    _id: string;
+    name: string;
+    lastName: string;
+    secondLastName: string;
+    email: string;
+    phone: string;
+    role: "employee";
+    addresses: Address[];
 };
 
 export const useEmployees = () => {

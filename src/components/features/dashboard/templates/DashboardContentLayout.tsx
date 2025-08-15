@@ -7,7 +7,7 @@ interface DashboardContentLayoutProps {
 
 const DashboardContentLayout: React.FC<DashboardContentLayoutProps> = ({ children, className = "" }) => {
     return (
-        <main className={`flex flex-col flex-1 p-8 gap-8 ${className}`}>
+        <main className={`flex flex-col flex-1 p-8 ${className}`}>
             {children}
         </main>
     );
