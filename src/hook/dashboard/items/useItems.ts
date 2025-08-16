@@ -1,4 +1,4 @@
-// hooks/useProducts.ts
+// hooks/useItems.ts
 import { useQuery } from "@tanstack/react-query";
 
 const API_URL = "https://ratacueva-api.onrender.com/api/products";
@@ -11,9 +11,7 @@ export type Item = {
     price: number;
 };
 
-export type { Product };
-
-export const useProducts = () => {
+export const useItems = () => {
     return useQuery<Item[]>({
         queryKey: ["products"],
         queryFn: async () => {

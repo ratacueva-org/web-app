@@ -9,7 +9,7 @@ import StatusTag from "@/components/features/dashboard/atoms/StatusTag";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import DashboardContentLayout from "@/components/features/dashboard/templates/DashboardContentLayout";
 import { ColumnDef } from "@tanstack/react-table";
-import { Shipment, useShipments } from "@/hook/dashboard/useShipments";
+import { Shipment, useShipments } from "@/hook/dashboard/shipments/useShipments";
 import Link from "next/link";
 import Dropdown from "@/components/atoms/Dropdown";
 

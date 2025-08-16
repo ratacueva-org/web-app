@@ -4,7 +4,7 @@ import React, { use } from "react";
 import { Heading, Body } from "@/components/atoms/Typography";
 import DashboardContentLayout from "@/components/features/dashboard/templates/DashboardContentLayout";
 import { useParams } from "next/navigation";
-import { useShipmentDetails } from "@/hook/dashboard/useShipments";
+import { useShipmentDetails } from "@/hook/dashboard/shipments/useShipments";
 
 export default function ShipmentDetails() {
     const params = useParams();

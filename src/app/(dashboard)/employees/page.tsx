@@ -14,7 +14,7 @@ import { Body, Heading } from "@/components/atoms/Typography";
 import DashboardContentLayout from "@/components/features/dashboard/templates/DashboardContentLayout";
 import { BaseTable } from "@/components/features/dashboard/atoms/BaseTable";
 
-import { useEmployees, useDeleteEmployee, type Address, Employee } from "@/hook/dashboard/useEmployees";
+import { useEmployees, useDeleteEmployee, type Address, Employee } from "@/hook/dashboard/employees/useEmployees";
 import { TrashIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { ColumnDef } from "@tanstack/react-table";
 

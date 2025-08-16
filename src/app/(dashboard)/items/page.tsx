@@ -11,12 +11,12 @@ import StatusTag, { getStockStatus } from "@/components/features/dashboard/atoms
 import { PencilSquareIcon, TrashIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import DashboardContentLayout from "@/components/features/dashboard/templates/DashboardContentLayout";
 import { ColumnDef } from "@tanstack/react-table";
-import { Item, useProducts } from "@/hook/dashboard/useProduct";
+import { Item, useItems } from "@/hook/dashboard/items/useItems";
 import { BaseTable } from "@/components/features/dashboard/atoms/BaseTable";
 import Pagination from "@/components/atoms/Pagination";
 
 export default function Items() {
-    const { data: products = [], isLoading, error } = useProducts();
+    const { data: products = [], isLoading, error } = useItems();
     const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
