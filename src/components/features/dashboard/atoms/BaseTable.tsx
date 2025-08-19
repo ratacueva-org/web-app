@@ -8,7 +8,6 @@ import {
     ColumnDef,
     RowData,
 } from "@tanstack/react-table";
-import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { Body } from "@/components/atoms/Typography";
 
 interface BaseTableProps<TData extends RowData> {
@@ -16,16 +15,14 @@ interface BaseTableProps<TData extends RowData> {
     columns: ColumnDef<TData, any>[];
     isLoading?: boolean;
     className?: string;
-    /** Altura máxima de la tabla para scroll vertical */
-    maxHeight?: string; // Ej: "h-96", "h-[400px]"
+    maxHeight?: string;
 }
 
 export function BaseTable<TData extends RowData>({
     data,
     columns,
-    isLoading = false,
     className = "",
-    maxHeight = "h-96", // valor por defecto
+    maxHeight = "h-96",
 }: BaseTableProps<TData>) {
     const memoColumns = useMemo(() => columns, [columns]);
     const memoData = useMemo(() => data, [data]);
@@ -36,18 +33,8 @@ export function BaseTable<TData extends RowData>({
         getCoreRowModel: getCoreRowModel(),
     });
 
-    if (isLoading) {
-        return (
-            <div className="flex justify-center items-center h-40">
-                <ArrowPathIcon className="animate-spin h-6 w-6 text-placeholder" />
-            </div>
-        );
-    }
-
     return (
-        <div
-            className={`bg-gray rounded-lg overflow-hidden ${className} ${maxHeight} overflow-y-auto`}
-        >
+        <div className={`bg-gray rounded-lg overflow-hidden ${className} ${maxHeight} overflow-y-auto`}>
             <table className="w-full">
                 <thead>
                     {table.getHeaderGroups().map(hg => (

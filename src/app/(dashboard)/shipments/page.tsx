@@ -12,6 +12,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Shipment, useShipments } from "@/hook/dashboard/shipments/useShipments";
 import Link from "next/link";
 import Dropdown from "@/components/atoms/Dropdown";
+import DataLoader from "@/components/features/dashboard/molecules/DataLoader";
 
 export default function Shipments() {
     const { data: shipments = [], isLoading, error } = useShipments();
@@ -34,7 +35,7 @@ export default function Shipments() {
 
     const totalRecords = filteredShipments.length;
     const totalPages = Math.ceil(totalRecords / itemsPerPage);
-    const paginatedShipments = useMemo(() => {
+    const shipmentsData = useMemo(() => {
         const start = (currentPage - 1) * itemsPerPage;
         return filteredShipments.slice(start, start + itemsPerPage);
     }, [filteredShipments, currentPage, itemsPerPage]);
@@ -108,8 +109,13 @@ export default function Shipments() {
                 </div>
 
                 {/* Tabla o estados */}
-                <BaseTable data={paginatedShipments} columns={columns} isLoading={isLoading} />
-
+                <DataLoader isLoading={isLoading} error={error}>
+                    <BaseTable
+                        data={shipmentsData}
+                        columns={columns}
+                        isLoading={isLoading}
+                        maxHeight="h-[500px]" />
+                </DataLoader>
                 {/* Footer de paginación */}
                 <div className="flex justify-between items-center flex-wrap gap-6">
                     <Body className="text-text">

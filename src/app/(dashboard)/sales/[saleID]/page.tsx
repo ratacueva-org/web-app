@@ -2,12 +2,12 @@
 
 import React, { use } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Display, Body, Heading, Subheading } from "@/components/atoms/Typography";
+import { Body, Heading, Subheading } from "@/components/atoms/Typography";
 import DashboardContentLayout from "@/components/features/dashboard/templates/DashboardContentLayout";
-import { notFound } from "next/navigation";
 import Input from "@/components/atoms/Input";
 import { SaleDetail } from "@/hook/dashboard/sales/useSale";
 import Textarea from "@/components/atoms/Textarea";
+import Loader from "@/components/atoms/Loader";
 
 interface SaleDetailPageProps {
     params: Promise<{ saleID: string }>;
@@ -43,10 +43,23 @@ export default function SaleDetailPage({ params }: SaleDetailPageProps) {
 
     const sale = saleData?.order;
 
-    if (isLoading) return <Body>Cargando...</Body>;
-    if (error || !sale) {
-        console.log("Error o sale vacío:", sale, error);
-        notFound();
+    if (isLoading) {
+        return (
+            <DashboardContentLayout>
+                <Heading>Visualizar venta</Heading>
+                <Loader className="h-40" />
+            </DashboardContentLayout>
+        );
+
+    } if (error || !sale) {
+        return (
+            <DashboardContentLayout>
+                <Heading>Visualizar venta</Heading>
+                <Body className="text-danger">
+                    {error ? "Error al cargar la venta" : "No se encontró la venta"}
+                </Body>
+            </DashboardContentLayout>
+        );
     }
 
     // Función para mostrar estatus legible
@@ -93,8 +106,6 @@ export default function SaleDetailPage({ params }: SaleDetailPageProps) {
         return `${formattedDate}: ${message}`;
     };
 
-
-
     // Campos mapeados
     const customerName = sale.userId ? `${sale.userId.name} ${sale.userId.lastName}` : "";
     const customerEmail = sale.userId?.email || "";
@@ -109,21 +120,6 @@ export default function SaleDetailPage({ params }: SaleDetailPageProps) {
         ? `${sale.billingAddress.street} ${sale.billingAddress.externalNumber}, ${sale.billingAddress.neighborhood}, ${sale.billingAddress.city}, ${sale.billingAddress.state || sale.billingAddress.country}, ${sale.billingAddress.postalCode}`
         : "";
     const status = getStatusText(sale.orderStatus);
-    const date = formatFullDate(sale.createdAt);
-
-    console.log("Datos de la venta completos:", {
-        sale,
-        customerName,
-        customerEmail,
-        customerPhone,
-        payMethod,
-        totalPrice,
-        totalProducts,
-        shipping,
-        billing,
-        status,
-        date,
-    });
 
     return (
         <DashboardContentLayout>

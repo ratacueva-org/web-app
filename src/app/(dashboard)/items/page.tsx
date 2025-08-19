@@ -14,6 +14,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Item, useItems } from "@/hook/dashboard/items/useItems";
 import { BaseTable } from "@/components/features/dashboard/atoms/BaseTable";
 import Pagination from "@/components/atoms/Pagination";
+import DataLoader from "@/components/features/dashboard/molecules/DataLoader";
 
 export default function Items() {
     const { data: products = [], isLoading, error } = useItems();
@@ -26,7 +27,7 @@ export default function Items() {
         p.name.toLowerCase().includes(term)
     ), [products, term]);
 
-    const itemData = useMemo(() => {
+    const itemsData = useMemo(() => {
         const start = (currentPage - 1) * itemsPerPage;
         return filtered.slice(start, start + itemsPerPage);
     }, [filtered, currentPage, itemsPerPage]);
@@ -73,7 +74,7 @@ export default function Items() {
         {
             id: "actions",
             header: "ACTIONS",
-            cell: ({ row }) => (
+            cell: info => (
                 <div className="flex items-center gap-2">
                     <Button variant="icon">
                         <PencilSquareIcon className="w-6 h-6 text-warning" />
@@ -124,10 +125,13 @@ export default function Items() {
                 </div>
 
                 {/* Tabla */}
+                <DataLoader isLoading={isLoading} error={error}>
                     <BaseTable
-                        data={itemData}
+                        data={itemsData}
                         columns={columns}
-                        isLoading={isLoading}/>
+                        isLoading={isLoading}
+                        maxHeight="h-[500px]" />
+                </DataLoader>
 
                 {/* Footer de paginación */}
                 <div className="flex justify-between items-center flex-wrap gap-6">

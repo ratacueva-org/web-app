@@ -17,6 +17,7 @@ import { BaseTable } from "@/components/features/dashboard/atoms/BaseTable";
 import { useEmployees, useDeleteEmployee, type Address, Employee } from "@/hook/dashboard/employees/useEmployees";
 import { TrashIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { ColumnDef } from "@tanstack/react-table";
+import DataLoader from "@/components/features/dashboard/molecules/DataLoader";
 
 export default function Employees() {
     const router = useRouter();
@@ -51,7 +52,7 @@ export default function Employees() {
     const totalRecords = filtered.length;
     const totalPages = Math.ceil(totalRecords / itemsPerPage);
 
-    const currentData = useMemo(() => {
+    const employeesData = useMemo(() => {
         const start = (currentPage - 1) * itemsPerPage;
         return filtered.slice(start, start + itemsPerPage);
     }, [filtered, currentPage, itemsPerPage]);
@@ -158,12 +159,13 @@ export default function Employees() {
                 </div>
 
                 {/* Table */}
-                <BaseTable
-                    data={currentData}
-                    columns={columns}
-                    isLoading={isLoading}
-                    maxHeight="h-[500px]"
-                />
+                <DataLoader isLoading={isLoading} error={error}>
+                    <BaseTable
+                        data={employeesData}
+                        columns={columns}
+                        isLoading={isLoading}
+                        maxHeight="h-[500px]" />
+                </DataLoader>
 
                 {/* Pagination Footer */}
                 <div className="flex justify-between items-center flex-wrap gap-6">

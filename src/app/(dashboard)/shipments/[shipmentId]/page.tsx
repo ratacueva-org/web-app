@@ -1,64 +1,103 @@
 "use client";
 
-import React, { use } from "react";
-import { Heading, Body } from "@/components/atoms/Typography";
+import React from "react";
+import { Heading, Subheading, Body } from "@/components/atoms/Typography";
 import DashboardContentLayout from "@/components/features/dashboard/templates/DashboardContentLayout";
 import { useParams } from "next/navigation";
-import { useShipmentDetails } from "@/hook/dashboard/shipments/useShipments";
+import Loader from "@/components/atoms/Loader";
+import Input from "@/components/atoms/Input";
+import { useShipment } from "@/hook/dashboard/shipments/useShipment";
 
-export default function ShipmentDetails() {
+export default function ShipmentDetailPage() {
     const params = useParams();
-    const shipmentId = params.shipmentId as string;
+    const shipmentID = params.shipmentID as string;
 
-    const { data: shipmentData, isLoading, error } = useShipmentDetails(shipmentId);
+    const { data: shipmentData, isLoading, error } = useShipment(shipmentID);
+
+    console.log({ shipmentID, shipmentData, isLoading, error });
+
+    if (isLoading) {
+        return (
+            <DashboardContentLayout>
+                <Heading>Visualizar envío</Heading>
+                <Loader className="h-40" />
+            </DashboardContentLayout>
+        );
+    }
+
+    if (error || !shipmentData) {
+        return (
+            <DashboardContentLayout>
+                <Heading>Visualizar envío</Heading>
+                <Body className="text-danger">
+                    {error ? "Error al cargar el envío" : "No se encontró el envío"}
+                </Body>
+            </DashboardContentLayout>
+        );
+    }
 
     return (
         <DashboardContentLayout>
-            <div className="flex flex-col gap-8 overflow-hidden items-stretch justify-start text-text">
+            <div className="flex flex-col gap-6">
                 <Heading>Visualizar envío</Heading>
 
-                {isLoading ? (
-                    <Body>Cargando...</Body>
-                ) : error ? (
-                    <Body className="text-danger">Error al cargar el envío</Body>
-                ) : !shipmentData ? (
-                    <Body>No se encontró el envío</Body>
-                ) : (
-                    <div className="rounded-lg bg-gray flex flex-col min-h-[456px] w-full px-8 pt-9 pb-8 overflow-hidden items-stretch justify-center">
-                        <div className="flex flex-col w-full items-stretch justify-start">
+                <div className="bg-gray rounded-lg px-8 py-8 flex flex-col gap-6">
 
-                            {/* First Row */}
-                            <div className="flex w-full items-start gap-6 justify-start flex-wrap">
-                                <InfoBox label="Id del envío" value={shipmentData.id} />
-                                <InfoBox label="Número de rastreo" value={shipmentData.trackingNumber} />
-                            </div>
-
-                            {/* Second Row */}
-                            <div className="flex mt-6 w-full items-start gap-6 justify-start flex-wrap">
-                                <InfoBox label="Transportista" value={shipmentData.carrier} />
-                                <InfoBox label="Destino" value={shipmentData.destination} />
-                            </div>
-
-                            {/* Third Row */}
-                            <div className="flex mt-6 w-full items-start gap-6 justify-start flex-wrap">
-                                <InfoBox label="Estatus" value={shipmentData.status} />
-                                <InfoBox label="Fecha de creación" value={shipmentData.createdAt} />
-                            </div>
+                    {/* Datos básicos del envío */}
+                    <div className="flex flex-col gap-4">
+                        <Subheading>Datos del envío</Subheading>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <Input label="Id del envío" value={shipmentData.id} readOnly />
+                            <Input label="Número de rastreo" value={shipmentData.trackingNumber} readOnly />
+                            <Input label="Transportista" value={shipmentData.carrier} readOnly />
+                            <Input label="Tipo de servicio" value={shipmentData.serviceType} readOnly />
+                            <Input label="Destino" value={shipmentData.destination} readOnly className="md:col-span-2" />
                         </div>
                     </div>
-                )}
+
+                    {/* Dimensiones y peso */}
+                    <div className="flex flex-col gap-4">
+                        <Subheading>Dimensiones y peso</Subheading>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <Input label="Peso (kg)" value={shipmentData.weight} readOnly />
+                            <Input label="Dimensiones (LxAnxAl cm)" value={shipmentData.dimensions} readOnly />
+                        </div>
+                    </div>
+
+                    {/* Estatus y fechas */}
+                    <div className="flex flex-col gap-4">
+                        <Subheading>Estatus y fechas</Subheading>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <Input label="Estatus" value={shipmentData.status} readOnly />
+                            <Input label="Fecha de creación" value={shipmentData.createdAt} readOnly />
+                            <Input label="Entrega estimada" value={shipmentData.estimatedDelivery} readOnly />
+                            <Input label="Entrega real" value={shipmentData.actualDelivery} readOnly />
+                        </div>
+                    </div>
+
+                    {/* Costo */}
+                    <div className="flex flex-col gap-4">
+                        <Subheading>Costo</Subheading>
+                        <Input label="Costo del envío" value={shipmentData.cost} readOnly />
+                    </div>
+
+                    {/* Eventos de seguimiento */}
+                    {shipmentData.events.length > 0 && (
+                        <div className="flex flex-col gap-4">
+                            <Subheading>Eventos de seguimiento ({shipmentData.events.length})</Subheading>
+                            {shipmentData.events.map((event, index) => (
+                                <div key={index} className="grid grid-cols-1 md:grid-cols-4 gap-5">
+                                    <Input label="Estatus" value={event.status} readOnly />
+                                    <Input label="Ubicación" value={event.location} readOnly />
+                                    <Input label="Descripción" value={event.description} readOnly />
+                                    <Input label="Fecha y hora" value={event.timestamp} readOnly />
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                </div>
             </div>
         </DashboardContentLayout>
-    );
-}
-
-function InfoBox({ label, value }: { label: string; value: string }) {
-    return (
-        <div className="flex min-w-[240px] min-h-[79px] flex-col items-stretch justify-start flex-1">
-            <Body className="font-medium text-text mb-4">{label}</Body>
-            <div className="rounded-lg bg-gray border border-border flex min-h-11 w-full px-4 py-3 items-center overflow-hidden justify-start">
-                <Body className="text-text font-normal whitespace-nowrap">{value}</Body>
-            </div>
-        </div>
     );
 }

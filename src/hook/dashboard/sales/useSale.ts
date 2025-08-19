@@ -76,7 +76,7 @@ export const useSale = (saleID: string) => {
 
             if (!res.ok) throw new Error("Error al obtener la venta");
 
-            return res.json(); // API devuelve { message: string, order: SaleDetail }
+            return res.json();
         },
         enabled: !!saleID,
     });

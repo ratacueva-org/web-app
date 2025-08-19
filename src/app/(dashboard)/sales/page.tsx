@@ -12,6 +12,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 import { Sale, useSales } from "@/hook/dashboard/sales/useSales";
 import Pagination from "@/components/atoms/Pagination";
+import DataLoader from "@/components/features/dashboard/molecules/DataLoader";
 
 const paymentMethodLabels: Record<string, string> = {
     credit_card: "Tarjeta de crédito o débito",
@@ -55,7 +56,7 @@ export default function Sales() {
     const startItem = totalRecords === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1;
     const endItem = Math.min(currentPage * itemsPerPage, totalRecords);
 
-    const paginatedSales = useMemo(() => {
+    const salesData = useMemo(() => {
         const start = (currentPage - 1) * itemsPerPage;
         return filteredSales.slice(start, start + itemsPerPage);
     }, [filteredSales, currentPage, itemsPerPage]);
@@ -105,11 +106,11 @@ export default function Sales() {
         },
     ], []);
 
-  return (
-    <DashboardContentLayout>
-      <div className="flex justify-between items-center pb-3">
-        <Heading>Administrar ventas</Heading>
-      </div>
+    return (
+        <DashboardContentLayout>
+            <div className="flex justify-between items-center pb-3">
+                <Heading>Administrar ventas</Heading>
+            </div>
 
             <div className="flex flex-col gap-6">
                 {/* Top controls */}
@@ -135,11 +136,13 @@ export default function Sales() {
                 </div>
 
                 {/* Tabla */}
-                <BaseTable
-                    data={paginatedSales}
-                    columns={columns}
-                    isLoading={isLoading} />
-
+                <DataLoader isLoading={isLoading} error={error}>
+                    <BaseTable
+                        data={salesData}
+                        columns={columns}
+                        isLoading={isLoading}
+                        maxHeight="h-[500px]"/>
+                </DataLoader>
                 {/* Footer paginación */}
                 <div className="flex justify-between items-center flex-wrap gap-6">
                     <Body>
