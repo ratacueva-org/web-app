@@ -122,8 +122,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const variantSpecificClasses = getVariantSpecificClasses(
     variant,
-    size,
-    shape
+    size
   );
 
   const sizeSpecificClasses = getSizeClasses(size, shape);

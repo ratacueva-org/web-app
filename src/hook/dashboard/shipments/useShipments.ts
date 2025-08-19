@@ -27,7 +27,7 @@ interface ShipmentApiResponse {
         currentStatus: string;
         createdAt: string;
     }>;
-    meta: any;
+    meta: unknown;
 }
 
 export const useShipments = () => {

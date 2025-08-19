@@ -76,10 +76,10 @@ export default function Items() {
             header: "ACTIONS",
             cell: info => (
                 <div className="flex items-center gap-2">
-                    <Button variant="icon">
+                    <Button variant="icon" onClick={() => console.log(info.row.original)}>
                         <PencilSquareIcon className="w-6 h-6 text-warning" />
                     </Button>
-                    <Button variant="icon">
+                    <Button variant="icon" onClick={() => console.log(info.row.original)}>
                         <TrashIcon className="w-6 h-6 text-danger" />
                     </Button>
                 </div>

@@ -12,7 +12,7 @@ import { Body } from "@/components/atoms/Typography";
 
 interface BaseTableProps<TData extends RowData> {
     data: TData[];
-    columns: ColumnDef<TData, any>[];
+    columns: ColumnDef<TData, string | number>[];
     isLoading?: boolean;
     className?: string;
     maxHeight?: string;
