@@ -2,6 +2,11 @@
   "name": "ratacueva-web",
   "version": "0.1.0",
   "private": true,
+  "description": "Gaming ecommerce frontend — product catalog, shopping cart, admin dashboard (Next.js, TypeScript, TailwindCSS)",
+  "author": {
+    "name": "Serrano Puertos Jorge Christian",
+    "email": "christian.serrano.puertos@gmail.com"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

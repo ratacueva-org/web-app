@@ -1,137 +1,112 @@
-# RataCueva
-
-Plataforma de ecommerce especializada en productos gaming: videojuegos, componentes de PC, equipos armados y accesorios para gamers.
+# RataCueva Web App — Gaming Ecommerce Frontend
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Next.js-15.3-black?logo=next.js" alt="Next.js version">
-  <img src="https://img.shields.io/badge/React-19.0-blue?logo=react" alt="React version">
-  <img src="https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript" alt="TypeScript version">
-  <img src="https://img.shields.io/badge/TailwindCSS-4.x-cyan?logo=tailwindcss" alt="TailwindCSS version">
+  <img src="https://img.shields.io/badge/Next.js-15.3-black?logo=next.js&logoColor=white" alt="Next.js">
+  <img src="https://img.shields.io/badge/React-19.0-61DAFB?logo=react&logoColor=black" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/TailwindCSS-4.x-06B6D4?logo=tailwindcss&logoColor=white" alt="TailwindCSS">
+  <img src="https://img.shields.io/badge/License-GPL_v3-0298c3?logo=gnu&logoColor=white" alt="GPL v3">
 </p>
-
-## 🖥️ Capturas de pantalla
 
 <p align="center">
-  <img src="./public/images/screenshots/home.png" alt="Página principal" width="200"/>
-  <img src="./public/images/screenshots/products.png" alt="Catálogo de productos" width="200"/>
-  <img src="./public/images/screenshots/cart.png" alt="Carrito de compras" width="200"/>
-  <img src="./public/images/screenshots/dashboard.png" alt="Dashboard admin" width="200"/>
+  <em>Customer-facing ecommerce platform for video games, PC components, and gaming accessories</em>
 </p>
 
-## 🎮 ¿Qué es RataCueva?
+<p align="center">
+  <a href="https://github.com/ratacueva-org/ratacueva-web/issues">Report Bug</a>
+  ·
+  <a href="https://ratacueva.netlify.app/home">Visit Website</a>
+</p>
 
-**RataCueva** es una plataforma integral de ecommerce gaming que incluye:
-
-- **Tienda online** - catálogo completo de productos gaming
-- **Panel administrativo** - gestión de inventario, ventas y envíos
-- **Sistema de autenticación** - registro y login de usuarios
-- **Carrito inteligente** - experiencia de compra optimizada
-
-La plataforma ofrece desde **componentes de PC y periféricos** hasta **videojuegos y equipos completos**, proporcionando todo lo necesario para la comunidad gamer.
-
----
-
-## ✨ Funcionalidades
-
-🛒 **Catálogo completo** - videojuegos, componentes, PCs armadas y accesorios  
-🔍 **Búsqueda avanzada** - filtros por categoría, precio y especificaciones  
-🛡️ **Autenticación segura** - registro, login y recuperación de contraseña  
-📱 **Diseño responsivo** - experiencia optimizada en todos los dispositivos  
-📊 **Panel administrativo** - gestión de productos, empleados y ventas  
-💳 **Carrito inteligente** - proceso de compra simplificado
+<p align="center">
+  <a href="README.md">🇬🇧 English</a> · <a href="README.es.md">🇪🇸 Español</a>
+</p>
 
 ---
 
-## 🛠 Tecnologías
+## About RataCueva Web App
 
-- **Next.js 15** con App Router
-- **React 19** para interfaces interactivas
-- **TypeScript** para desarrollo robusto
-- **TailwindCSS 4** para estilos modernos
-- **Framer Motion** para animaciones fluidas
-- **React Query** para gestión de estado del servidor
-- **Axios** para comunicación con APIs
-- **React Table** para tablas de datos
+A modern, responsive ecommerce frontend built with Next.js 15 and React 19. Features a complete product catalog, advanced search and filtering, shopping cart, user authentication, and a comprehensive admin dashboard for inventory and order management.
 
----
+### Ecosystem
 
-## ⚡ Instalación rápida
+| Component | Repository | Stack |
+|-----------|-----------|-------|
+| Web App (this) | [ratacueva-org/ratacueva-web](https://github.com/ratacueva-org/ratacueva-web) | Next.js, TypeScript, TailwindCSS |
+| Backend API | [ratacueva-org/ratacueva-api](https://github.com/ratacueva-org/ratacueva-api) | Express, TypeScript, MongoDB |
 
-### Prerrequisitos
+## Features
 
-- **Node.js** (v18 o superior)
-- **npm** o **yarn**
+- Complete gaming product catalog with categories and search
+- Advanced filtering by price, category, and specifications
+- Shopping cart with optimized checkout flow
+- User authentication and account management
+- Admin dashboard for products, orders, and users
+- Responsive design for all devices
+- Framer Motion animations for smooth interactions
 
-### Pasos
+## Quick Start
 
-1. **Clonar repositorio**
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Setup
 
 ```bash
-git clone https://github.com/chrisdev-ts/ratacueva-web.git
+git clone https://github.com/ratacueva-org/ratacueva-web.git
 cd ratacueva-web
-```
-
-2. **Instalar dependencias**
-
-```bash
 npm install
 ```
 
-3. **Configurar variables de entorno**
-   Crea `.env.local` en la raíz:
+### Environment Variables
+
+Create a `.env.local` file:
 
 ```
-NEXT_PUBLIC_API_URL="http://localhost:3001"
-DATABASE_URL="tu_database_url"
-NEXTAUTH_SECRET="tu_secret_key"
+NEXT_PUBLIC_API_URL=http://localhost:3001
+NEXTAUTH_SECRET=your_secret_key
 ```
 
-4. **Ejecutar en desarrollo**
+### Run
 
 ```bash
 npm run dev
 ```
 
-La aplicación estará disponible en `http://localhost:3000`
+The app will be available at `http://localhost:3000`
 
----
-
-## 🏗 Estructura del proyecto
+## Architecture
 
 ```
 src/
-├── app/                    # App Router de Next.js
-│   ├── (auth)/            # Rutas de autenticación
-│   ├── (dashboard)/       # Panel administrativo
-│   └── (shop)/            # Tienda online
-├── components/            # Componentes reutilizables
-│   ├── atoms/             # Componentes básicos
-│   ├── features/          # Componentes por funcionalidad
-│   └── organisms/         # Componentes complejos
-├── hooks/                 # Hooks personalizados
-├── services/              # Servicios de API
-└── contexts/              # Contextos de React
+├── app/
+│   ├── (auth)/          # Authentication routes
+│   ├── (dashboard)/     # Admin dashboard
+│   └── (shop)/          # Online store
+├── components/
+│   ├── atoms/           # Basic components
+│   ├── features/        # Feature-specific components
+│   └── organisms/       # Complex components
+├── hooks/               # Custom hooks
+├── services/            # API services
+└── contexts/            # React contexts
 ```
 
----
+## Contributing
 
-## 🏗 Ecosistema RataCueva: nuestros repositorios
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for branch naming, commit conventions, and PR workflow.
 
-RataCueva está compuesto por múltiples repositorios especializados:
+## License
 
-| Repositorio                                                      | Propósito                | Estado           |
-| ---------------------------------------------------------------- | ------------------------ | ---------------- |
-| **ratacueva-web**                                                | Frontend ecommerce       | ✅ En desarrollo |
-| **[ratacueva-api](https://github.com/styleEddie/ratacueva-api)** | API backend principal    | ✅ En desarrollo |
-| **ratacueva-mobile**                                             | App móvil nativa         | 🚧 Planificado   |
-| **ratacueva-payments**                                           | Microservicio de pagos   | 🚧 Planificado   |
+This project is licensed under the GPL v3 — see the [LICENSE](LICENSE) file for details.
 
----
+## Acknowledgments
 
-## 🤝 Colaboración interna
+**Authors:**
 
-Seguimos convenciones específicas para mantener consistencia - consulta [CONTRIBUTING.md](CONTRIBUTING.md) y [INTERFACES.md](INTERFACES.md) para conocer nuestras convenciones de desarrollo y estructura de datos.
-
-## 📝 Licencia
-
-Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
+- Serrano Puertos Jorge Christian
+- Chavez Moreno Jose Eduardo
+- Lopez Valdes Erick Ernesto
+- Florentino Altamirano Misrael
