@@ -101,17 +101,17 @@ export default function PaymentSecurityPage() {
               <Subheading className="text-white">Resumen de la compra</Subheading>
               <div className="h-px bg-white/20"></div>
               <div className="flex justify-between items-center">
-                <Body className="text-white text-xl">Producto</Body>
-                <Body className="text-white text-xl">₡{subtotal.toLocaleString()}</Body>
+                <Body className="text-white">Producto</Body>
+                <Body className="text-white">₡{subtotal.toLocaleString()}</Body>
               </div>
               <div className="flex justify-between items-center">
-                <Body className="text-white text-xl">Envío</Body>
-                <Body className="text-emerald-400 text-xl">Gratis</Body>
+                <Body className="text-white">Envío</Body>
+                <Body className="text-emerald-400">Gratis</Body>
               </div>
               <div className="h-px bg-white/20"></div>
               <div className="flex justify-between items-center">
-                <Body className="text-white text-xl">Total</Body>
-                <Subheading className="text-white text-xl">₡{total.toLocaleString()}</Subheading>
+                <Body className="text-white">Total</Body>
+                <Subheading className="text-white">₡{total.toLocaleString()}</Subheading>
               </div>
             </div>
           </div>

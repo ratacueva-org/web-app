@@ -97,7 +97,7 @@ export default function SettingsPage() {
             )}
           </div>
           <div className="flex flex-col justify-center items-start gap-2 text-center sm:text-left">
-            <div className="text-white text-3xl font-bold">
+            <div className="text-white text-2xl font-bold">
               {userName}
             </div>
             <div className="text-white text-base font-normal">{userEmail}</div>

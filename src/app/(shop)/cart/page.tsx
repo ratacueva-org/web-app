@@ -113,7 +113,7 @@ export default function CartPage() {
           <div className="w-full lg:w-[847px] space-y-6">
             {cartItems.length === 0 ? (
               <div className="p-6 bg-gray rounded-lg">
-                <Body className="text-white text-center text-xl">
+                <Body className="text-white text-center">
                   Tu carrito está vacío. ¡Añade algunos productos!
                 </Body>
               </div>
@@ -157,7 +157,7 @@ export default function CartPage() {
                     
                     {/* Precio y cantidad */}
                     <div className="flex flex-col items-center sm:items-end gap-4">
-                      <Body className="text-white text-xl font-medium">
+                      <Body className="text-white font-medium">
                         ${(item.price * item.quantity).toLocaleString()}
                       </Body>
                       <div className="rounded-[999px] outline-2 outline-offset-[-2px] outline-cyan-400 inline-flex justify-start items-start">

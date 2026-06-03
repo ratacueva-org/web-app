@@ -153,7 +153,7 @@ export default function PurchasesPage() {
           {filteredGroups.length === 0 ? (
             <div className="text-center py-12">
               <TruckIcon className="w-16 h-16 text-zinc-600 mx-auto mb-4" />
-              <Body className="text-white text-xl mb-2">No tienes compras</Body>
+              <Body className="text-white mb-2">No tienes compras</Body>
               <Body className="text-zinc-400">
                 Realiza tu primera compra para ver tu historial aquí
               </Body>

@@ -21,7 +21,6 @@ interface ProductDetailPageProps {
 export default function ProductDetailPage({ product, relatedProducts = [], reviews }: ProductDetailPageProps) {
   console.log('ProductDetailPage Props:', { product, relatedProducts, reviews })
   
-  const [showFullDescription, setShowFullDescription] = useState(false)
   const [quantity, setQuantity] = useState(1)
   const [apiRelatedProducts, setApiRelatedProducts] = useState<Product[]>(relatedProducts)
   const [loadingRelated, setLoadingRelated] = useState(false)
@@ -112,7 +111,7 @@ export default function ProductDetailPage({ product, relatedProducts = [], revie
     }
   }, [product.id, product.category, apiRelatedProducts.length, isHydrated])
 
-  const displayDescription = showFullDescription ? product.description : `${product.description?.substring(0, 250)}...`
+  const displayDescription = product.description
 
   const handleQuantityChange = (delta: number) => {
     setQuantity((prev) => Math.max(1, prev + delta))
@@ -170,7 +169,7 @@ export default function ProductDetailPage({ product, relatedProducts = [], revie
       href={`/product/${product.id}`}
       className="flex-1 bg-gray rounded-lg inline-flex flex-col justify-center items-center overflow-hidden group cursor-pointer"
     >
-      <div className="self-stretch h-56 p-4 flex flex-col justify-center items-center gap-2.5">
+      <div className="self-stretch bg-white h-56 p-4 flex flex-col justify-center items-center gap-2.5">
         <Image
           className="w-48 flex-1 object-contain group-hover:scale-105 transition-transform duration-300"
           src={product.image || "/placeholder.svg"}
@@ -222,7 +221,7 @@ export default function ProductDetailPage({ product, relatedProducts = [], revie
           <div className="w-full lg:w-[847px] self-stretch inline-flex flex-col justify-start items-start gap-8 overflow-hidden">
             {/* Main Image & Thumbnails */}
             <div className="self-stretch inline-flex flex-col sm:flex-row justify-start items-start gap-8">
-              <div className="self-stretch p-6 bg-gray hover:bg-dark hover:border-gray border border-transparent border-2 transition-border rounded-lg flex justify-center items-center flex-grow overflow-hidden">
+              <div className="self-stretch p-6 bg-white hover:bg-gray-100 border border-gray-200/10 rounded-lg flex justify-center items-center flex-grow overflow-hidden">
                 <Image
                   className="w-full h-auto max-w-96 max-h-96 object-contain"
                   src={product.images?.[0] || product.image}
@@ -235,7 +234,7 @@ export default function ProductDetailPage({ product, relatedProducts = [], revie
                 {product.images?.slice(1, 4).map((img, index) => (
                   <div
                     key={index}
-                    className="p-3 sm:p-6 bg-gray hover:bg-dark hover:border-gray border border-transparent border-2 transition-border rounded-lg flex justify-center items-center overflow-hidden"
+                    className="p-3 sm:p-6 bg-white hover:bg-gray-100 border border-gray-200/10 rounded-lg flex justify-center items-center overflow-hidden"
                   >
                     <Image
                       className="w-24 h-24 sm:w-36 sm:h-36 object-contain"
@@ -251,42 +250,17 @@ export default function ProductDetailPage({ product, relatedProducts = [], revie
 
             {/* Product Description */}
             <div className="justify-start text-white text-2xl font-bold ">Descripción del producto</div>
-            <div className="self-stretch flex-1 p-6 bg-gray rounded-lg flex flex-col justify-center items-start gap-6 overflow-hidden">
-              <div className="self-stretch inline-flex justify-start items-center gap-2">
-                <div className="text-center justify-start text-white text-base font-normal ">
-                  {product.rating}
-                </div>
-                <div className="flex items-center ml-2">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <StarIcon
-                      key={i}
-                      className={`w-4 h-4 ${i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-placeholder"}`}
-                    />
-                  ))}
-                </div>
-                <div className="text-center justify-center text-white text-xs font-normal ">
-                  / 5 de {product.reviews} opiniones
-                </div>
-              </div>
-              <div className="self-stretch justify-start text-white text-xl font-normal ">
+            <div className="self-stretch flex-1 p-6 bg-gray rounded-lg flex flex-col justify-start items-start gap-6 overflow-hidden">
+              <div className="self-stretch justify-start text-white font-normal ">
                 {displayDescription}
               </div>
-              {product.description && product.description.length > 250 && (
-                <button
-                  onClick={() => setShowFullDescription(!showFullDescription)}
-                  className="self-stretch h-11 min-h-11 px-4 py-2.5 bg-primary hover:bg-primary/80 transition-colors rounded-[99px] inline-flex justify-center items-center gap-3"
-                >
-                  <div className="justify-start text-white text-base font-bold ">
-                    {showFullDescription ? "Leer menos" : "Leer más"}
-                  </div>
-                </button>
-              )}
+
               {product.specs && product.specs.length > 0 && (
                 <>
                   <div className="text-center justify-start text-white text-xl font-semibold  mt-4">
                     Especificaciones
                   </div>
-                  <ul className="self-stretch text-white text-xl font-normal  list-disc pl-5">
+                  <ul className="self-stretch text-white font-normal list-disc pl-5">
                     {product.specs.map((spec, index) => (
                       <li key={index}>
                         <strong>{spec.label}:</strong> {spec.value}
@@ -307,15 +281,15 @@ export default function ProductDetailPage({ product, relatedProducts = [], revie
                 </div>
                 {product.shipping && (
                   <div className="justify-start">
-                    <span className="text-emerald-400 text-xl font-bold ">{product.shipping}</span>
-                    <span className="text-white text-xl font-bold "> el lunes</span>
+                    <span className="text-emerald-400 font-bold ">{product.shipping}</span>
+                    <span className="text-white font-bold "> el lunes</span>
                   </div>
                 )}
                 <div className="self-stretch h-px bg-white/20"></div> {/* Divider */}
                 <div className="self-stretch inline-flex justify-between items-center">
                   <div className="justify-start">
-                    <span className="text-white text-xl font-normal ">Cantidad: </span>
-                    <span className="text-white text-xl font-bold ">{quantity} unidad</span>
+                    <span className="text-white font-normal ">Cantidad: </span>
+                    <span className="text-white font-bold ">{quantity} unidad</span>
                   </div>
                   <div className="flex justify-start items-center gap-2">
                     <button
@@ -392,14 +366,14 @@ export default function ProductDetailPage({ product, relatedProducts = [], revie
 
               <div className="self-stretch h-px bg-white/20"></div> {/* Divider */}
               <div className="self-stretch justify-start">
-                <span className="text-emerald-400 text-xl font-bold ">Devolución gratis. </span>
-                <span className="text-white text-xl font-normal ">
+                <span className="text-emerald-400 font-bold ">Devolución gratis. </span>
+                <span className="text-white font-normal ">
                   Tienes 30 días desde que lo recibes.
                 </span>
               </div>
               <div className="self-stretch justify-start">
-                <span className="text-emerald-400 text-xl font-bold ">Compra protegida. </span>
-                <span className="text-white text-xl font-normal ">
+                <span className="text-emerald-400 font-bold ">Compra protegida. </span>
+                <span className="text-white font-normal ">
                   Recibe el producto que esperabas o te devolvemos tu dinero.
                 </span>
               </div>
@@ -463,10 +437,10 @@ export default function ProductDetailPage({ product, relatedProducts = [], revie
                     </button>
                   </div>
                 </div>
-                <div className="justify-start text-white text-xl font-normal ">
+                <div className="justify-start text-white font-normal ">
                   {review.content}
                   {review.content.length > 100 && ( 
-                    <span className="text-cyan-400 text-xl font-bold  cursor-pointer hover:underline">
+                    <span className="text-cyan-400 font-bold cursor-pointer hover:underline">
                       {" "}
                       Leer más
                     </span>
@@ -477,7 +451,7 @@ export default function ProductDetailPage({ product, relatedProducts = [], revie
           </div>
           <div className="flex-1 self-stretch p-6 bg-gray rounded-lg inline-flex flex-col justify-start items-start gap-6 overflow-hidden w-full">
             <div className="inline-flex justify-center items-center gap-2.5">
-              <div className="text-center justify-center text-white text-5xl font-bold ">
+              <div className="text-center justify-center text-white text-4xl font-bold ">
                 {product.rating}
               </div>
               <div className="inline-flex flex-col justify-center items-start gap-0.5">

@@ -17,7 +17,7 @@ export default function AddCardPage() {
   const router = useRouter();
 
   const API_URL =
-    process.env.NEXT_PUBLIC_API_URL || "https://ratacueva-api.onrender.com/api";
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
 
   const [type, setType] = useState<
     "credit_card" | "debit_card" | "paypal" | "oxxo_cash"

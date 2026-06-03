@@ -143,7 +143,7 @@ export default function CardsPage() {
             {paymentMethods.length === 0 ? (
               <div className="text-center py-12">
                 <CreditCardIcon className="w-16 h-16 text-zinc-600 mx-auto mb-4" />
-                <Body className="text-white text-xl mb-2">No tienes tarjetas guardadas</Body>
+                <Body className="text-white mb-2">No tienes tarjetas guardadas</Body>
                 <Body className="text-zinc-400">Agrega una tarjeta para realizar compras más rápido</Body>
               </div>
             ) : (

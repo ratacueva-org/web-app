@@ -19,7 +19,7 @@ export const BaseTypography: React.FC<BaseTypographyInternalProps> = ({
   const getVariantClasses = (variant: string) => {
     switch (variant) {
       case "display":
-        return "text-[32px] font-bold"; // 32px, bold
+        return "text-4xl font-bold"; // 36px, bold — WCAG 1.4.4: rem-based
       case "heading":
         return "text-2xl font-bold"; // 24px, bold
       case "subheading":

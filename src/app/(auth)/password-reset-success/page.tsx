@@ -32,7 +32,7 @@ const PasswordResetSuccessPage = () => {
             />
           </div>
 
-          <Body className="text-base sm:text-lg text-center w-full max-w-lg px-2.5 sm:px-0 text-text">
+          <Body className="text-center w-full max-w-lg px-2.5 sm:px-0 text-text">
             Tu contraseña ha sido restablecida exitosamente.
           </Body>
 

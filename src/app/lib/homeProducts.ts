@@ -7,7 +7,7 @@ export const featuredProducts = [
     price: 2449,
     originalPrice: 2899,
     discount: 15,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/617SkPgMZpL._AC_SL1500_.jpg",
     badge: "Oferta",
   },
   {
@@ -16,7 +16,7 @@ export const featuredProducts = [
     rating: 4.9,
     reviews: 1240,
     price: 899,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/61rB1-LO3fL._AC_SL1500_.jpg",
     badge: "Nuevo",
   },
   {
@@ -27,7 +27,7 @@ export const featuredProducts = [
     price: 599,
     originalPrice: 799,
     discount: 25,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/61-F0KQym0L._AC_SL1500_.jpg",
     badge: "Oferta",
   },
   {
@@ -36,7 +36,7 @@ export const featuredProducts = [
     rating: 4.6,
     reviews: 650,
     price: 1299,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/71xNjrzG69L._AC_SL1500_.jpg",
   },
   {
     id: 5,
@@ -44,7 +44,7 @@ export const featuredProducts = [
     rating: 4.9,
     reviews: 2100,
     price: 15999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/71m9FJCubXL._AC_SL1500_.jpg",
     badge: "Popular",
   },
   {
@@ -53,7 +53,7 @@ export const featuredProducts = [
     rating: 4.8,
     reviews: 1560,
     price: 12999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/61My4F2-XUL._AC_SL1500_.jpg",
   },
 ];
 
@@ -64,7 +64,7 @@ export const gamingProducts = [
     rating: 4.9,
     reviews: 3200,
     price: 18999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/61OFeihbEZL._AC_SL1500_.jpg",
   },
   {
     id: 8,
@@ -72,7 +72,7 @@ export const gamingProducts = [
     rating: 4.8,
     reviews: 2800,
     price: 17999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/61WV2vIMfFL._AC_SL1500_.jpg",
   },
   {
     id: 9,
@@ -80,7 +80,7 @@ export const gamingProducts = [
     rating: 4.7,
     reviews: 2100,
     price: 12999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/7148mbvrbWL._AC_SL1500_.jpg",
   },
   {
     id: 10,
@@ -88,7 +88,7 @@ export const gamingProducts = [
     rating: 4.6,
     reviews: 1500,
     price: 15999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/61zx6H6UKiL._AC_SL1500_.jpg",
   },
   {
     id: 11,
@@ -96,7 +96,7 @@ export const gamingProducts = [
     rating: 4.7,
     reviews: 890,
     price: 2499,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/61GNEp3auhL._AC_SL1500_.jpg",
   },
   {
     id: 12,
@@ -104,7 +104,7 @@ export const gamingProducts = [
     rating: 4.5,
     reviews: 450,
     price: 8999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/71pUjhmqCeL._AC_SL1500_.jpg",
   },
 ];
 
@@ -115,7 +115,7 @@ export const componentProducts = [
     rating: 4.8,
     reviews: 890,
     price: 8999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/81cQQqzPcSL._AC_SL1500_.jpg",
   },
   {
     id: 14,
@@ -123,7 +123,7 @@ export const componentProducts = [
     rating: 4.7,
     reviews: 1200,
     price: 4599,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/71eGb1FcyiL._AC_SL1500_.jpg",
   },
   {
     id: 15,
@@ -131,7 +131,7 @@ export const componentProducts = [
     rating: 4.9,
     reviews: 750,
     price: 3999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/81o-F9OX7fL._AC_SL1500_.jpg",
   },
   {
     id: 16,
@@ -139,7 +139,7 @@ export const componentProducts = [
     rating: 4.6,
     reviews: 650,
     price: 2999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/61-u3G8Bg9L._AC_SL1500_.jpg",
   },
   {
     id: 17,
@@ -147,7 +147,7 @@ export const componentProducts = [
     rating: 4.8,
     reviews: 1120,
     price: 3499,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/61sveEgbI2L._AC_SL1500_.jpg",
   },
   {
     id: 18,
@@ -155,7 +155,7 @@ export const componentProducts = [
     rating: 4.7,
     reviews: 980,
     price: 4999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/61MPuTqSwBL._AC_SL1500_.jpg",
   },
 ];
 
@@ -166,7 +166,7 @@ export const computerProducts = [
     rating: 4.9,
     reviews: 340,
     price: 45999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://placehold.co/200x200?text=RTX+4070",
     badge: "Armada",
   },
   {
@@ -175,7 +175,7 @@ export const computerProducts = [
     rating: 4.8,
     reviews: 180,
     price: 65999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://placehold.co/200x200?text=Workstation",
   },
   {
     id: 21,
@@ -183,7 +183,7 @@ export const computerProducts = [
     rating: 4.6,
     reviews: 520,
     price: 25999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://placehold.co/200x200?text=PC+Gaming",
   },
   {
     id: 22,
@@ -191,7 +191,7 @@ export const computerProducts = [
     rating: 4.7,
     reviews: 290,
     price: 38999,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://placehold.co/200x200?text=Streaming+PC",
   },
 ];
 
@@ -202,7 +202,7 @@ export const accessoryProducts = [
     rating: 4.5,
     reviews: 420,
     price: 1899,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/61IXIlgBE8L._AC_SL1500_.jpg",
   },
   {
     id: 24,
@@ -210,7 +210,7 @@ export const accessoryProducts = [
     rating: 4.7,
     reviews: 680,
     price: 2499,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/61GRjBQF0EL._AC_SL1500_.jpg",
   },
   {
     id: 25,
@@ -218,7 +218,7 @@ export const accessoryProducts = [
     rating: 4.6,
     reviews: 890,
     price: 599,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/41sNt1-AT6L._AC_SL1500_.jpg",
   },
   {
     id: 26,
@@ -226,7 +226,7 @@ export const accessoryProducts = [
     rating: 4.4,
     reviews: 340,
     price: 1299,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/71Z9T0VgGyL._AC_SL1500_.jpg",
   },
   {
     id: 27,
@@ -234,7 +234,7 @@ export const accessoryProducts = [
     rating: 4.8,
     reviews: 230,
     price: 1899,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/51jwrEC7GZL._AC_SL1500_.jpg",
   },
   {
     id: 28,
@@ -242,6 +242,6 @@ export const accessoryProducts = [
     rating: 4.5,
     reviews: 150,
     price: 899,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "https://m.media-amazon.com/images/I/713yIh9bdQL._AC_SL1500_.jpg",
   },
 ];

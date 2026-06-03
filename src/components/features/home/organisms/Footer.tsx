@@ -44,7 +44,7 @@ const contactInfo = [
   {
     type: "address",
     icon: MapPinIcon,
-    items: ["San José, Costa Rica"],
+    items: ["Córdoba, Veracruz, México"],
   },
 ];
 
@@ -106,7 +106,7 @@ export default function Footer() {
                 style={{ height: 'auto' }}
               />
             </Link>
-            <Body className="text-placeholder text-base lg:text-lg mb-6 leading-relaxed">
+            <Body className="text-placeholder text-base mb-6 leading-relaxed">
               Tu tienda de confianza para productos gaming y tecnología.
               Llevamos tu experiencia al siguiente nivel.
             </Body>

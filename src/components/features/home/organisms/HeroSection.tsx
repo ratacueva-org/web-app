@@ -47,18 +47,23 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
           {/* Columna izquierda - Texto */}
           <div className="max-w-2xl">
-            <Display className="text-4xl lg:text-6xl xl:text-7xl font-bold text-white mb-6">
+            <Display className="text-4xl lg:text-5xl font-bold text-white mb-6">
               {isLoading && "Cargando..."}
               {error && "Error cargando productos"}
               {!isLoading && !error && currentProduct && (
                 <>{currentProduct.name}</>
               )}
             </Display>
-            <Body className="text-lg lg:text-xl text-white mb-8">
+            <Body className="text-white mb-8">
               {isLoading && "Buscando productos innovadores..."}
               {error && "No se pudo cargar la descripción."}
               {!isLoading && !error && currentProduct && (
-                <>{currentProduct.description || "Sin descripción"}</>
+                <>
+                  {(() => {
+                    const desc = currentProduct.description || "Sin descripción"
+                    return desc.length > 150 ? desc.substring(0, 150) + "..." : desc
+                  })()}
+                </>
               )}
             </Body>
             {!isLoading && !error && currentProduct && (

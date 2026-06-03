@@ -59,7 +59,7 @@ export default function FeaturedBanner() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           <div className="absolute bottom-6 left-6 right-6">
             <Subheading className="text-white mb-2">{categories[0].name}</Subheading>
-            <Body className="text-placeholder text-lg mb-4">{categories[0].productCount} productos disponibles</Body>
+            <Body className="text-placeholder mb-4">{categories[0].productCount} productos disponibles</Body>
             <Button>
               Ver productos
             </Button>
@@ -81,7 +81,7 @@ export default function FeaturedBanner() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-3 left-3 right-3">
-                <Subheading className="text-white text-sm lg:text-lg mb-1">{category.name}</Subheading>
+                <Subheading className="text-white text-sm mb-1">{category.name}</Subheading>
                 <Body className="text-placeholder text-xs lg:text-sm">
                   {category.productCount} productos
                 </Body>

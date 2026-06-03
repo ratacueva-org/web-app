@@ -87,7 +87,7 @@ export default function FaqSection() {
         <div className="space-y-8 lg:space-y-12">
           <div>
             <Heading className="text-white mb-4 lg:mb-6">Preguntas frecuentes</Heading>
-            <Body className="text-lg text-white">
+            <Body className="text-white">
               Encuentra respuestas a las preguntas más comunes sobre nuestros productos y servicios.
             </Body>
           </div>
@@ -157,7 +157,7 @@ export default function FaqSection() {
                 className="w-full px-6 py-4 text-left flex justify-between items-center"
                 onClick={() => toggleFaq(index)}
               >
-                <span className="text-white text-base lg:text-lg font-medium pr-4">{item.question}</span>
+                <span className="text-white text-base font-medium pr-4">{item.question}</span>
                 {activeIndex === index ? (
                   <ChevronUpIcon className="w-5 h-5 text-cyan-400 flex-shrink-0" />
                 ) : (

@@ -61,7 +61,7 @@ export default function SearchResults({ products, sortBy, onSortChange, query }:
       className="block bg-gray hover:bg-dark border border-2 border-transparent hover:border-gray transition-colors transition-border rounded-lg overflow-hidden group cursor-pointer"
     >
       {/* Image Container */}
-      <div className="relative h-56 lg:h-64 p-4 flex flex-col justify-center items-center">
+      <div className="relative bg-white h-56 lg:h-64 p-4 flex flex-col justify-center items-center">
         <Image
           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
           src={product.image || "/placeholder.svg"}

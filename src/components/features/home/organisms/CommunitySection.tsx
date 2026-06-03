@@ -22,7 +22,7 @@ export default function CommunitySection() {
             ¿Qué opina la comunidad de RataCueva?
           </Heading>
 
-          <Body className="text-lg lg:text-xl text-white leading-relaxed">
+          <Body className="text-white leading-relaxed">
             Descubre lo que nuestros clientes dicen sobre su experiencia en RataCueva. 
             Cada reseña refleja nuestro compromiso con la excelencia en servicio, 
             ambiente acogedor y sabores únicos que nos han convertido en el lugar 

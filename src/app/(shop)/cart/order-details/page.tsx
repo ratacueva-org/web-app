@@ -38,7 +38,7 @@ export default function OrderDetailsPage() {
             
             {/* Delivery Details */}
             <div className="space-y-4">
-              <Subheading className="text-white text-xl">Detalle de la entrega</Subheading>
+              <Subheading className="text-white">Detalle de la entrega</Subheading>
               
               <div className="p-6 bg-gray rounded-lg space-y-6">
                 <div className="flex items-center gap-6">
@@ -46,7 +46,7 @@ export default function OrderDetailsPage() {
                     <MapPinIcon className="w-7 h-8 text-white" />
                   </div>
                   <div className="space-y-2">
-                    <Body className="text-white text-xl">
+                    <Body className="text-white">
                       Prolongación De La Calle 1 Av. 10 Y Av. Hortencia 268
                     </Body>
                     <div className="flex items-center gap-4">
@@ -80,7 +80,7 @@ export default function OrderDetailsPage() {
                     <BodySmall className="text-white text-base">|</BodySmall>
                     <BodySmall className="text-emerald-400 text-base">Gratis</BodySmall>
                   </div>
-                  <Body className="text-white text-xl">
+                  <Body className="text-white">
                     Monitor Samsung 47&quot; Ofrece una buena calidad de imagen y sonido. 
                     Su funcionamiento es excelente y es recomendada por su relación calidad-precio. 
                     Además, su diseño es atractivo y cumple con las expectativas de un Smart TV 4K.
@@ -94,7 +94,7 @@ export default function OrderDetailsPage() {
 
             {/* Payment Details */}
             <div className="space-y-4">
-              <Subheading className="text-white text-xl">Detalles del pago</Subheading>
+              <Subheading className="text-white">Detalles del pago</Subheading>
               
               <div className="p-6 bg-gray rounded-lg space-y-6">
                 <div className="flex items-start gap-6">
@@ -102,10 +102,10 @@ export default function OrderDetailsPage() {
                     <BodySmall className="text-white text-xs">VISA</BodySmall>
                   </div>
                   <div className="space-y-2">
-                    <Subheading className="text-white text-xl">
+                    <Subheading className="text-white">
                       Visa Débito ******4180
                     </Subheading>
-                    <Body className="text-white text-xl">${total.toLocaleString()}</Body>
+                    <Body className="text-white">${total.toLocaleString()}</Body>
                   </div>
                 </div>
                 <button className="text-cyan-400 text-base font-bold hover:underline">
@@ -128,17 +128,17 @@ export default function OrderDetailsPage() {
               <Subheading className="text-white">Resumen de la compra</Subheading>
               <div className="h-px bg-white/20"></div>
               <div className="flex justify-between items-center">
-                <Body className="text-white text-xl">Producto</Body>
-                <Body className="text-white text-xl">${subtotal.toLocaleString()}</Body>
+                <Body className="text-white">Producto</Body>
+                <Body className="text-white">${subtotal.toLocaleString()}</Body>
               </div>
               <div className="flex justify-between items-center">
-                <Body className="text-white text-xl">Envío</Body>
-                <Body className="text-emerald-400 text-xl">Gratis</Body>
+                <Body className="text-white">Envío</Body>
+                <Body className="text-emerald-400">Gratis</Body>
               </div>
               <div className="h-px bg-white/20"></div>
               <div className="flex justify-between items-center">
-                <Body className="text-white text-xl">Total</Body>
-                <Subheading className="text-white text-xl">${total.toLocaleString()}</Subheading>
+                <Body className="text-white">Total</Body>
+                <Subheading className="text-white">${total.toLocaleString()}</Subheading>
               </div>
             </div>
           </div>

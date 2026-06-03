@@ -94,8 +94,8 @@ export default function AddressesPage() {
                       <HomeIcon className="absolute left-[10px] top-[9.23px] h-8 w-7 text-white" />
                     </div>
                     <div className="inline-flex flex-col items-start justify-center gap-2">
-                      <Body className="text-xl font-normal text-white">
-                        {address.street} {address.externalNumber}{" "}
+                                            <Body className="font-normal text-white">
+                        {address.street} {address.externalNumber} {" "}
                         {address.internalNumber
                           ? `- Int. ${address.internalNumber}`
                           : ""}

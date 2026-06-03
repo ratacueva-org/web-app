@@ -368,7 +368,7 @@ export default function SuccessfulPurchasePage() {
       <PageLayout>
         <div className="px-4 lg:px-60 py-8 flex flex-col justify-center items-center gap-8">
           <div className="text-center">
-            <Body className="text-white text-xl">
+            <Body className="text-white">
               Cargando información de la compra...
             </Body>
           </div>

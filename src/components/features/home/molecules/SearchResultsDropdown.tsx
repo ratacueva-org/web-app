@@ -40,7 +40,7 @@ export default function SearchResults({ products, sortBy, onSortChange, query }:
       </Link>
       <div className="relative">
         {/* Product Image */}
-        <div className="relative h-48 p-4 flex items-center justify-center">
+        <div className="relative bg-white h-48 p-4 flex items-center justify-center">
           <Image
             src={product.image || "/placeholder.svg"}
             alt={product.name}

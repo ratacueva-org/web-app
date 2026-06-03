@@ -40,7 +40,7 @@ const PasswordResetPage = () => {
             </svg>
           </div>
 
-          <Body className="text-text text-base sm:text-lg text-center w-full max-w-lg px-2.5 sm:px-0">
+          <Body className="text-text text-center w-full max-w-lg px-2.5 sm:px-0">
             Haz clic en el botón para solicitar un código de restablecimiento,
             posteriormente introdúcelo en el formulario de la siguiente interfaz
           </Body>

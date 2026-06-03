@@ -44,7 +44,7 @@ export default function FavoritesPage() {
         <div className="space-y-6">
           {favoriteItems.length === 0 ? (
             <div className="p-6 bg-dark rounded-lg">
-              <Body className="text-white text-center text-xl">
+              <Body className="text-white text-center">
                 No tienes productos favoritos. ¡Añade algunos!
               </Body>
             </div>
@@ -69,7 +69,7 @@ export default function FavoritesPage() {
                           {item.name}
                         </Subheading>
                       </Link>
-                      <Body className="text-white text-xl font-medium">
+                      <Body className="text-white font-medium">
                         ${item.price.toLocaleString()}
                       </Body>
                     </div>

@@ -50,7 +50,7 @@ export default function NotificationsPage() {
         <div className="space-y-6">
           <div className="p-6 bg-gray rounded-lg">
             <div className="flex items-center gap-3 mb-4">
-              <Subheading className="text-white text-xl font-bold">Notificaciones por email</Subheading>
+              <Subheading className="text-white font-bold">Notificaciones por email</Subheading>
             </div>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -130,7 +130,7 @@ export default function NotificationsPage() {
 
           <div className="p-6 bg-gray rounded-lg">
             <div className="flex items-center gap-3 mb-4">
-              <Subheading className="text-white text-xl font-bold">Notificaciones push</Subheading>
+              <Subheading className="text-white font-bold">Notificaciones push</Subheading>
             </div>
             <div className="space-y-4">
               <div className="flex items-center justify-between">

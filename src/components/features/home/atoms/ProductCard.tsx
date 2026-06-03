@@ -54,16 +54,14 @@ export default function ProductCard({ product }: ProductCardProps) {
     <Link href={`/product/${product.id}`} className="block">
       <div className="bg-gray hover:bg-dark transition-colors rounded-lg overflow-hidden group cursor-pointer">
       {/* Image Container */}
-      <div className="relative h-56 lg:h-64 p-4 flex flex-col justify-center items-center">
+      <div className="relative bg-white h-56 lg:h-64 p-4 flex items-center justify-center overflow-hidden">
         <Image
-          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+          className="object-contain group-hover:scale-105 transition-transform duration-300"
           src={product.image || "/placeholder.svg"}
           alt={product.name}
           width={300}
           height={300}
         />
-
-
       </div>
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>

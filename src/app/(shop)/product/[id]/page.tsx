@@ -1,8 +1,9 @@
 import ProductDetailPage from "@/components/features/home/organisms/ProductDetailPage";
 import { getProductById, getRelatedProducts } from "@/services/home/products";
+import { getProductReviews } from "@/services/home/reviews";
 import { notFound } from "next/navigation";
 import type { Product as ApiProduct } from "@/services/home/products";
-import type { Product } from "@/app/lib/data";
+import type { Product, Review } from "@/app/lib/data";
 
 type ProductResponse = ApiProduct | { success: boolean; data: ApiProduct };
 type RelatedProductsResponse =
@@ -79,13 +80,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
     const product = transformApiProductToComponent(apiProduct);
 
+    // Extract the actual ID from the MongoDB ObjectId
+    const objectId = typeof apiProduct._id === 'object' && '$oid' in apiProduct._id 
+      ? apiProduct._id.$oid 
+      : apiProduct._id as string;
+
     // Get related products
     let relatedProducts: Product[] = [];
     try {
-      // Extract the actual ID from the MongoDB ObjectId for related products
-      const objectId = typeof apiProduct._id === 'object' && '$oid' in apiProduct._id 
-        ? apiProduct._id.$oid 
-        : apiProduct._id as string;
         
       const relatedResponse = await getRelatedProducts(
         apiProduct.category,
@@ -106,11 +108,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
       // Continue without related products if there's an error
     }
 
+    // Get product reviews
+    let productReviews: Review[] = []
+    try {
+      productReviews = await getProductReviews(objectId)
+    } catch (reviewError) {
+      console.error("Error fetching reviews:", reviewError)
+    }
+
     return (
       <ProductDetailPage
         product={product}
         relatedProducts={relatedProducts}
-        reviews={[]} // TODO: Implement reviews
+        reviews={productReviews}
       />
     );
   } catch (error) {
