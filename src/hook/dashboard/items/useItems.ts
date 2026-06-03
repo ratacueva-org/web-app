@@ -1,7 +1,7 @@
 // hooks/useItems.ts
 import { useQuery } from "@tanstack/react-query";
 
-const API_URL = "https://ratacueva-api.onrender.com/api/products";
+const API_URL = process.env.NEXT_PUBLIC_API_URL + "/products";
 
 export type Item = {
     _id: string;

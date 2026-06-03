@@ -29,7 +29,7 @@ export default function SaleDetailPage({ params }: SaleDetailPageProps) {
         queryKey: ["sale", saleID],
         queryFn: async () => {
             if (!token) throw new Error("No hay token disponible");
-            const res = await fetch(`https://ratacueva-api.onrender.com/api/orders/${saleID}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/${saleID}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "application/json",

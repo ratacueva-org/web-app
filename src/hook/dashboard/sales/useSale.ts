@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-const API_URL = "https://ratacueva-api.onrender.com/api/orders";
+const API_URL = process.env.NEXT_PUBLIC_API_URL + "/orders";
 
 export type SaleDetail = {
     _id: string;

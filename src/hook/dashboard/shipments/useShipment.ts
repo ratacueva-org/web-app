@@ -7,7 +7,7 @@ import {
     formatWeight,
 } from "@/utils/formatters";
 
-const API_URL = "https://ratacueva-api.onrender.com/api/shipping";
+const API_URL = process.env.NEXT_PUBLIC_API_URL + "/shipping";
 
 interface ShipmentDetailApiResponse {
     success: boolean;

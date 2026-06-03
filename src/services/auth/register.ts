@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "https://ratacueva-api.onrender.com/api";
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
 
 export interface RegisterPayload {
   name: string;

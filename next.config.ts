@@ -9,7 +9,31 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'example.com',
+        hostname: 'm.media-amazon.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn-icons-png.flaticon.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'assets-global.website-files.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.builder.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
       },
     ],
   },

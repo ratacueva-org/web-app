@@ -2,7 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { mapStatusToStatusType } from "@/components/features/dashboard/atoms/StatusTag";
 
-const API_URL = "https://ratacueva-api.onrender.com/api/shipping";
+const API_URL = process.env.NEXT_PUBLIC_API_URL + "/shipping";
 
 export interface Shipment {
     id: string;
